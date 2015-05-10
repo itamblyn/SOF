@@ -1,0 +1,64 @@
+ 
+$molecule
+0,2
+P
+X,1,1.
+H,1,R,2,A
+H,1,R,2,A,3,180.,0
+ 
+ R=1.43044019
+ A=45.80225056
+ 
+$end
+
+$comment
+neutral
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+exchange 		general
+BASIS                   g3large
+omega			220 
+JOBTYPE                 opt
+separate_jk		true
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+exchange 		general
+BASIS                   g3large
+omega			220 
+JOBTYPE                 freq
+IDERIV 1
+SCF_GUESS READ
+separate_jk		true
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+

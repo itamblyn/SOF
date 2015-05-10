@@ -1,0 +1,52 @@
+ 
+$molecule
+0,1
+O
+C,1,RCO
+H,2,RH,1,THETA
+H,2,RH,1,THETA,3,180.,0
+ 
+RCO=1.20648509
+THETA=122.37640093
+RH=1.11044484
+ 
+$end
+ 
+ 
+$comment
+b3lyp opt
+$end
+
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION	0
+   BASIS                   g3large
+   JOBTYPE                 opt
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION       0
+   BASIS                   g3large
+   JOBTYPE                 freq
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+   JOBTYPE                 freq
+   IDERIV 1
+   SCF_GUESS READ
+$end

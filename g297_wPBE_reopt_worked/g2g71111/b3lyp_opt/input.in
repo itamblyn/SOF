@@ -1,0 +1,56 @@
+ 
+$molecule
+0,1
+C1
+C2,C1,rcc
+O1,C1,rco,C2,a1
+H,C1,rch,C2,a2,O1,180.0,0
+O2,C2,rco,C1,a1,O1,180.,0
+H,C2,rch,C1,a2,O1,0.,0
+
+rcc=1.52501583
+rco=1.20949276
+rch=1.10918789
+a1=121.52291302
+a2=114.69886473
+ 
+$end
+ 
+ 
+$comment
+b3lyp opt
+$end
+
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION	0
+   BASIS                   g3large
+   JOBTYPE                 opt
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION       0
+   BASIS                   g3large
+   JOBTYPE                 freq
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+   JOBTYPE                 freq
+   IDERIV 1
+   SCF_GUESS READ
+$end

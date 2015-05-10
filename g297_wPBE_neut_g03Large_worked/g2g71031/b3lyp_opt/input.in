@@ -1,0 +1,60 @@
+ 
+$molecule
+0,1
+C
+O,1,AB
+H,1,AH3,2,H3AB
+H,2,BH9,1,H9BA,3,180.,0
+X,1,1.,2,BAH12,3,180.,0
+H,1,AH1,5,H1AH2,2,90.,0
+H,1,AH1,5,H1AH2,2,-90.,0
+ 
+AB=1.41919435
+AH1=1.10117667
+AH3=1.09346715
+BH9=0.96865998
+H1AH2=54.22417123
+BAH12=131.27350844
+H3AB=106.64369205
+H9BA=107.57953769
+ 
+$end
+ 
+ 
+$comment
+b3lyp opt
+$end
+
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION	0
+   BASIS                   g3large
+   JOBTYPE                 opt
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION       0
+   BASIS                   g3large
+   JOBTYPE                 freq
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+   JOBTYPE                 freq
+   IDERIV 1
+   SCF_GUESS READ
+$end

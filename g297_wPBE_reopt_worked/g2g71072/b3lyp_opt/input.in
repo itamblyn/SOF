@@ -1,0 +1,54 @@
+ 
+$molecule
+0,1
+C
+C,1,C2-C1
+F,1,C-F,2,F-C-C
+F,1,C-F,2,F-C-C,3,180.,0
+F,2,C-F,1,F-C-C,3,0.,0
+F,2,C-F,1,F-C-C,3,180.,0
+
+ C2-C1=1.32551808
+ C-F=1.32432207
+ F-C-C=123.13412096
+
+$end
+ 
+ 
+$comment
+b3lyp opt
+$end
+
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION	0
+   BASIS                   g3large
+   JOBTYPE                 opt
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION       0
+   BASIS                   g3large
+   JOBTYPE                 freq
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+   JOBTYPE                 freq
+   IDERIV 1
+   SCF_GUESS READ
+$end

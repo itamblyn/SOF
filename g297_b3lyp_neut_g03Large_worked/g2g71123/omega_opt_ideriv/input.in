@@ -1,0 +1,79 @@
+ 
+$molecule
+0,1
+C
+O,1,CDO
+O,1,CSO,2,OCO
+H,3,OH,1,HOC,2,0.,0
+C,1,CC,2,CCO,3,180.,0
+H,5,CH,1,HCC,3,180.,0
+X,5,1.,1,XCC,3,0.,0
+H,5,CHP,7,HAL,1,90.,0
+H,5,CHP,7,HAL,1,-90.,0
+
+CDO=1.21026818
+CSO=1.35892274
+OCO=122.46800995
+OH=0.97553777
+HOC=105.76614612
+CC=1.5078308
+CCO=126.19897375
+CH=1.09014165
+HCC=109.5241442
+XCC=125.2780691
+CHP=1.0950587
+HAL=53.65855351
+
+$end
+
+$comment
+neutral
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+exchange 		general
+BASIS                   g3large
+omega			410 
+JOBTYPE                 opt
+separate_jk		true
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+exchange 		general
+BASIS                   g3large
+omega			410 
+JOBTYPE                 freq
+IDERIV 1
+SCF_GUESS READ
+separate_jk		true
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+

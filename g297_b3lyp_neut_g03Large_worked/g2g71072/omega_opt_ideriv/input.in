@@ -1,0 +1,67 @@
+ 
+$molecule
+0,1
+C
+C,1,C2-C1
+F,1,C-F,2,F-C-C
+F,1,C-F,2,F-C-C,3,180.,0
+F,2,C-F,1,F-C-C,3,0.,0
+F,2,C-F,1,F-C-C,3,180.,0
+
+ C2-C1=1.32551808
+ C-F=1.32432207
+ F-C-C=123.13412096
+
+$end
+
+$comment
+neutral
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+exchange 		general
+BASIS                   g3large
+omega			420 
+JOBTYPE                 opt
+separate_jk		true
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+exchange 		general
+BASIS                   g3large
+omega			420 
+JOBTYPE                 freq
+IDERIV 1
+SCF_GUESS READ
+separate_jk		true
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+

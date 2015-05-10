@@ -1,0 +1,60 @@
+ 
+$molecule
+0,1
+N         -0.00003        0.00000       -0.02014
+F          1.20891        0.00000       -0.60647
+F         -0.60445       -1.04703       -0.60646
+F         -0.60445        1.04703       -0.60646
+$end
+
+$comment
+neutral
+$end
+
+$xc_functional
+C PBE   1.00
+X wPBE  1.00
+$end
+
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+LRC_DFT                 true
+exchange 		general
+BASIS                   g3large
+omega			490 
+JOBTYPE                 opt
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$xc_functional
+C PBE   1.00
+X wPBE  1.00
+$end
+
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+LRC_DFT                 true
+exchange 		general
+BASIS                   g3large
+omega			490 
+JOBTYPE                 freq
+IDERIV 1
+SCF_GUESS READ
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+

@@ -1,0 +1,56 @@
+ 
+$molecule
+0,1
+C
+C,1,R1
+X,1,1.,2,90.
+C,1,R1,3,90.,2,180.,0
+H,2,R2,1,THETA1,3,0.,0
+H,2,R2,1,THETA1,3,180.,0
+H,4,R2,1,THETA1,3,90.,0
+H,4,R2,1,THETA1,3,-90.,0
+
+ R1=1.30683002
+ R2=1.08822774
+ THETA1=121.55115214
+
+$end
+ 
+ 
+$comment
+b3lyp opt
+$end
+
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION	0
+   BASIS                   g3large
+   JOBTYPE                 opt
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION       0
+   BASIS                   g3large
+   JOBTYPE                 freq
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+   JOBTYPE                 freq
+   IDERIV 1
+   SCF_GUESS READ
+$end

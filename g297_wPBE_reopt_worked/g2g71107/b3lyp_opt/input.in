@@ -1,0 +1,71 @@
+ 
+$molecule
+0,1
+C
+C,1,RA
+X,2,1.,1,ALPHA
+N,2,RB,3,ALPHA,1,180.,0
+X,1,1.,2,90.,3,180.,0
+H,1,R1,2,A1,5,0.,0
+H,1,R23,2,A23,5,B23,0
+H,1,R23,2,A23,5,-B23,0
+H,2,R45,3,A45,1,B45,0
+H,2,R45,3,A45,1,-B45,0
+H,4,R67,2,A67,3,B67,0
+H,4,R67,2,A67,3,-B67,0
+
+RA=1.53433259
+RB=1.46733604
+R1=1.09744016
+R23=1.09766131
+R45=1.09741524
+R67=1.0199965
+ALPHA=57.99165664
+A1=111.53723231
+A23=110.98368012
+A45=126.91609839
+A67=109.38481148
+B23=120.14233562
+B45=91.55640429
+B67=57.61986012
+
+$end
+ 
+ 
+$comment
+b3lyp opt
+$end
+
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION	0
+   BASIS                   g3large
+   JOBTYPE                 opt
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION       0
+   BASIS                   g3large
+   JOBTYPE                 freq
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+   JOBTYPE                 freq
+   IDERIV 1
+   SCF_GUESS READ
+$end

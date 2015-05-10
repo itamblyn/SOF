@@ -1,0 +1,54 @@
+ 
+$molecule
+0,1
+C
+C,1,cc
+Cl,1,ccl,2,cccl
+Cl,1,ccl,2,cccl,3,180.,0
+Cl,2,ccl,1,cccl,3,180.,0
+Cl,2,ccl,1,cccl,3,0.,0
+
+ cc=1.34683514
+ ccl=1.73153631
+ cccl=122.46468603
+
+$end
+ 
+ 
+$comment
+b3lyp opt
+$end
+
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION	0
+   BASIS                   g3large
+   JOBTYPE                 opt
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$rem
+   EXCHANGE B3LYP
+   UNRESTRICTED TRUE
+   SYMMETRY_DECOMPOSITION       0
+   BASIS                   g3large
+   JOBTYPE                 freq
+   mem_static              760
+   max_scf_cycles          200
+   scf_final_print         1
+   sym_ignore              true
+   JOBTYPE                 freq
+   IDERIV 1
+   SCF_GUESS READ
+$end

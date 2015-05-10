@@ -1,0 +1,68 @@
+ 
+$molecule
+0,1
+C
+X,1,1.
+Cl,1,CCl,2,HClX
+Cl,1,CCl,2,HClX,3,180.,0
+H,1,CH,2,HCX,3,90.,0
+H,1,CH,2,HCX,3,-90.,0
+
+CCl=1.79088554
+CH=1.08757434
+HClX=56.65320917
+HCX=124.25124469
+
+$end
+
+$comment
+neutral
+$end
+
+$xc_functional
+C PBE   1.00
+X wPBE  1.00
+$end
+
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+LRC_DFT                 true
+exchange 		general
+BASIS                   g3large
+omega			420 
+JOBTYPE                 opt
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+
+ 
+@@@
+ 
+$molecule 
+READ 
+$end 
+ 
+$xc_functional
+C PBE   1.00
+X wPBE  1.00
+$end
+
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+LRC_DFT                 true
+exchange 		general
+BASIS                   g3large
+omega			420 
+JOBTYPE                 freq
+IDERIV 1
+SCF_GUESS READ
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+

@@ -1,0 +1,825 @@
+Process 0 of 1 is on cl064.stfx.acenet.ca - thread support 1
+initial socket setup ...start
+initial socket setup ...done 
+now start server 0 ... 
+
+cmd = /usr/bin/ssh clhead /usr/local/qchem/bin/get_hostid 841099074 > /scratch/tmp/6027826.1.short.q/qchem6121/lic.dat
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+ Y. Shao, L. Fusti-Molnar, Y. Jung, J. Kussmann, C. Ochsenfeld,
+ S. T. Brown, A. T. B. Gilbert, L. V. Slipchenko,S. V. Levchenko,
+ D. P. O'Neill, R. A. DiStasio Jr., R. C. Lochan, T. Wang,
+ G. J. O. Beran, N. A. Besley, J. M. Herbert, C. Y. Lin,
+ T. Van Voorhis, S. H. Chien, A. Sodt, R. P. Steele, 
+ V. A. Rassolov, P. E. Maslen, P. P. Korambath, R. D. Adamson,
+ B. Austin, J. Baker, E. F. C. Byrd, H. Dachsel, R. J. Doerksen,
+ A. Dreuw, B. D. Dunietz, A. D. Dutoi, T. R. Furlani,
+ S. R. Gwaltney, A. Heyden, S. Hirata, C.-P. Hsu, G. Kedziora,
+ R. Z. Khaliullin, P. Klunzinger, A. M. Lee, M. S. Lee, W. Liang,
+ I. Lotan, N. Nair, B. Peters, E. I. Proynov, P. A. Pieniazek, 
+ Y. M. Rhee, J. Ritchie, E. Rosta, C. D. Sherrill, 
+ A. C. Simmonett, J. E. Subotnik, H. L. Woodcock III,
+ W. Zhang, A. T. Bell, A. K. Chakraborty, D. M. Chipman,
+ F. J. Keil, A. Warshel, W. J. Hehre, H. F. Schaefer III,
+ J. Kong, A. I. Krylov, P. M. W. Gill, M. Head-Gordon,
+ Q-Chem, Version 3.1, Q-Chem, Inc., Pittsburgh, PA (2007).
+
+ Additional authors for Version 3.1: 
+ Z. Gan, Y. Zhao, N. E. Schultz, D. Truhlar, E. Epifanovsky and M. Oana.
+
+ Additional authors for Version 3.2: 
+ R. Baer, B. R. Brooks, D. Casanova, J.-D. Chai, C.-L. Cheng, 
+ C. Cramer, D. Crittenden, A. Ghysels, G. Hawkins, E. G. Hohenstein, 
+ C. Kelley, W. Kurlancheek, D. Liotard, E. Livshits, P. Manohar, 
+ A. Marenich, D. Neuhauser, R. Olson, M. A. Rohrdanz, K. S. Thanthiriwatte, 
+ A. J. W. Thom, V. Vanovschi, C. F. Williams, Q. Wu and Z.-Q. You. 
+
+
+ Intel X86 Linux Version
+
+ Q-chem begins on Mon Jun  3 17:05:05 2013  
+
+ Parallel job on  1  processors
+Processing $rem in /usr/local/qchem/config/preferences.
+
+theFileMan(): MAXOPENFILES=974 MAX_SUB_FILE_NUM=16
+Maximum size of a physical file is 2.0 GB, maximum size of a tmp-file is 32.0 GB
+
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+
+$molecule
+-1,1
+C
+S,1,R
+H,1,ch1,2,hcs
+X,1,1.,2,alpha,3,180.,0
+H,1,ch,4,hch2,3,90.,0
+H,1,ch,4,hch2,3,-90.,0
+
+R=1.81256567
+ch=1.09351119
+hcs=106.82996657
+ch1=1.09887196
+hch2=55.32746965
+alpha=130.50070297
+
+$end
+
+$comment
+negative
+$end
+
+$xc_functional
+C PBE   1.00
+X wPBE  1.00
+$end
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+exchange 		general
+LRC_DFT                 true
+BASIS                   g3large
+omega			700
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+
+--------------------------------------------------------------
+ Writing REM_CC_EA            5
+ ----------------------------------------------------
+       Standard Nuclear Orientation (Angstroms)
+    I     Atom         X            Y            Z
+ ----------------------------------------------------
+    1      C       0.000000     0.000000     0.000000
+    2      S       0.000000     0.000000     1.812566
+    3      H       1.051805     0.000000    -0.318159
+    4      H      -0.473030     0.899322    -0.404016
+    5      H      -0.473030    -0.899322    -0.404016
+ ----------------------------------------------------
+ Nuclear Repulsion Energy =    48.1227557371 hartrees
+ There are       13 alpha and       13 beta electrons
+ Requested basis set is G3large
+ There are 47 shells and 138 basis functions
+
+Total QAlloc Memory Limit   2000 MB
+Mega-Array Size       743 MB
+MEM_STATIC part       760 MB
+
+                       Distance Matrix (Angstroms)
+             C (  1)   S (  2)   H (  3)   H (  4)
+   S (  2)  1.812566
+   H (  3)  1.098872  2.376191
+   H (  4)  1.093511  2.438395  1.772364
+   H (  5)  1.093511  2.438395  1.772364  1.798644
+ 
+ A cutoff of  1.0D-08 yielded   1081 shell pairs
+ There are   9436 function pairs ( 12275 Cartesian)
+Evaluating contribution to one-electron hamiltonian from nuclear
+ Smallest overlap matrix eigenvalue = 4.38E-04
+ Multipole matrices computed through 2nd order
+
+  Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000055 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ Long-range K will be added via erf
+ Coulomb attenuation parameter = 0.7 bohr**(-1)
+ A restricted Kohn-Sham SCF calculation will be
+ performed using Pulay DIIS extrapolation
+ Exchange:  wPBE + LR-HF      Correlation:  PBE
+ Using SG-1 standard quadrature grid
+ SCF converges when DIIS error is below 1.0E-05
+ Requested basis set is G3large
+ There are 47 shells and 138 basis functions
+ A cutoff of  1.0D-08 yielded   1081 shell pairs
+ There are   9436 function pairs ( 12275 Cartesian)
+ Warning!  Inaccurate integrated density:
+   Number of electrons =    26
+   Numerical integral  =    25.000026025866
+   Relative error      =    -3.8460537467 %
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1    -438.1056403412      2.89E-02
+    2    -437.9548608245      4.25E-03
+    3    -438.0114470395      2.45E-03
+    4    -438.0217972675      3.65E-04
+    5    -438.0223085676      1.11E-04
+    6    -438.0223989205      3.07E-05
+    7    -438.0224063271      1.65E-05
+    8    -438.0224074022      3.30E-06 Convergence criterion met
+ ---------------------------------------
+ One-Electron    Energy =  -705.3770809039
+ Total Coulomb   Energy =   251.5550432953
+ Alpha Exchange  Energy =    -4.0439053383
+ Beta  Exchange  Energy =    -4.0439053383
+ DFT   Exchange  Energy =   -23.3118252188
+ DFT Correlation Energy =    -0.9234896298
+ Nuclear Repu.   Energy =    48.1227557316
+ Nuclear Attr.   Energy = -1142.5575506350
+ Kinetic         Energy =   437.1804697311
+ SCF time:  CPU 37.13 s  wall 38.32 s
+ Final Alpha MO Eigenvalues
+            1           2           3           4           5           6
+    1 -88.1219412 -10.0772528  -7.7612377  -5.7601108  -5.7508143  -5.7507535
+            7           8           9          10          11          12
+    1  -0.7623020  -0.5648500  -0.3864283  -0.3792434  -0.2497588  -0.1044318
+           13          14          15          16          17          18
+    1  -0.1027326   0.1643368   0.1899048   0.1927406   0.2369834   0.2755060
+ Analysis of SCF Wavefunction
+ 
+ --------------------------------------------------------------
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+ 
+ Alpha MOs
+ -- Occupied --
+-88.122 -10.077  -7.761  -5.760  -5.751  -5.751  -0.762  -0.565
+ -0.386  -0.379  -0.250  -0.104  -0.103
+ -- Virtual --
+  0.164   0.190   0.193   0.237   0.276   0.282   0.283   0.308
+  0.315   0.327   0.350   0.430   0.430   0.449   0.520   0.599
+  0.603   0.634   0.634   0.658   0.691   0.719   0.736   0.754
+  0.756   0.871   0.872   0.926   0.948   1.051   1.055   1.071
+  1.169   1.248   1.259   1.265   1.314   1.318   1.323   1.327
+  1.433   1.453   1.458   1.483   1.484   1.524   1.614   1.616
+  1.656   1.666   1.679   1.769   1.782   1.801   1.831   1.838
+  1.946   2.308   2.317   2.486   2.844   2.846   2.944   3.323
+  3.352   3.411   3.417   3.571   3.591   3.592   3.649   3.671
+  3.915   3.938   3.984   4.006   4.017   4.033   4.041   4.102
+  4.107   4.229   4.280   4.292   4.410   4.552   4.554   4.729
+  4.739   4.742   4.819   5.080   5.080   5.263   5.280   5.427
+  5.787   6.022   6.035   8.775  17.574  17.576  17.819  23.919
+ 24.002  24.051  24.052  24.098  24.468  28.200  28.395  28.418
+ 31.373  31.373  31.375  31.375  31.381  31.381  31.398  41.308
+ 41.333  41.529  41.556  41.607 189.353
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 C                    -0.037076
+      2 S                    -1.087171
+      3 H                     0.049284
+      4 H                     0.037480
+      5 H                     0.037483
+  ----------------------------------------
+  Sum of atomic charges =    -1.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -4.8032
+    Dipole Moment (Debye)
+         X       0.0414      Y       0.0003      Z      -8.8358
+       Tot       8.8359
+    Quadrupole Moments (Debye-Ang)
+        XX     -26.7450     XY      -0.0006     YY     -26.6333
+        XZ       0.1426     YZ       0.0009     ZZ     -42.3350
+    Octapole Moments (Debye-Ang^2)
+       XXX       0.5316    XXY       0.0007    XYY      -0.7102
+       YYY       0.0021    XXZ     -34.8306    XYZ      -0.0018
+       YYZ     -34.8958    XZZ       0.0861    YZZ       0.0001
+       ZZZ    -116.9081
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX     -54.4706   XXXY      -0.0030   XXYY     -18.2669
+      XYYY      -0.0029   YYYY     -54.5070   XXXZ       0.2747
+      XXYZ       0.0018   XYYZ      -0.0081   YYYZ       0.0056
+      XXZZ     -83.3496   XYZZ      -0.0043   YYZZ     -83.0616
+      XZZZ       0.7380   YZZZ      -0.0005   ZZZZ    -417.9868
+ -----------------------------------------------------------------
+ Total job time:  38.52s(wall), 37.29s(cpu) 
+ Mon Jun  3 17:05:43 2013
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+
+0 sent ACK to 0 
+now end server 0 ... 
+ 
+**********************************************************************
+Job 2 of 3 
+**********************************************************************
+ 
+Process 0 of 1 is on cl064.stfx.acenet.ca - thread support 1
+initial socket setup ...start
+initial socket setup ...done 
+now start server 0 ... 
+
+cmd = /usr/bin/ssh clhead /usr/local/qchem/bin/get_hostid 479321685 > /scratch/tmp/6027826.1.short.q/qchem6121/lic.dat
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+ Y. Shao, L. Fusti-Molnar, Y. Jung, J. Kussmann, C. Ochsenfeld,
+ S. T. Brown, A. T. B. Gilbert, L. V. Slipchenko,S. V. Levchenko,
+ D. P. O'Neill, R. A. DiStasio Jr., R. C. Lochan, T. Wang,
+ G. J. O. Beran, N. A. Besley, J. M. Herbert, C. Y. Lin,
+ T. Van Voorhis, S. H. Chien, A. Sodt, R. P. Steele, 
+ V. A. Rassolov, P. E. Maslen, P. P. Korambath, R. D. Adamson,
+ B. Austin, J. Baker, E. F. C. Byrd, H. Dachsel, R. J. Doerksen,
+ A. Dreuw, B. D. Dunietz, A. D. Dutoi, T. R. Furlani,
+ S. R. Gwaltney, A. Heyden, S. Hirata, C.-P. Hsu, G. Kedziora,
+ R. Z. Khaliullin, P. Klunzinger, A. M. Lee, M. S. Lee, W. Liang,
+ I. Lotan, N. Nair, B. Peters, E. I. Proynov, P. A. Pieniazek, 
+ Y. M. Rhee, J. Ritchie, E. Rosta, C. D. Sherrill, 
+ A. C. Simmonett, J. E. Subotnik, H. L. Woodcock III,
+ W. Zhang, A. T. Bell, A. K. Chakraborty, D. M. Chipman,
+ F. J. Keil, A. Warshel, W. J. Hehre, H. F. Schaefer III,
+ J. Kong, A. I. Krylov, P. M. W. Gill, M. Head-Gordon,
+ Q-Chem, Version 3.1, Q-Chem, Inc., Pittsburgh, PA (2007).
+
+ Additional authors for Version 3.1: 
+ Z. Gan, Y. Zhao, N. E. Schultz, D. Truhlar, E. Epifanovsky and M. Oana.
+
+ Additional authors for Version 3.2: 
+ R. Baer, B. R. Brooks, D. Casanova, J.-D. Chai, C.-L. Cheng, 
+ C. Cramer, D. Crittenden, A. Ghysels, G. Hawkins, E. G. Hohenstein, 
+ C. Kelley, W. Kurlancheek, D. Liotard, E. Livshits, P. Manohar, 
+ A. Marenich, D. Neuhauser, R. Olson, M. A. Rohrdanz, K. S. Thanthiriwatte, 
+ A. J. W. Thom, V. Vanovschi, C. F. Williams, Q. Wu and Z.-Q. You. 
+
+
+ Intel X86 Linux Version
+
+ Q-chem begins on Mon Jun  3 17:05:46 2013  
+
+ Parallel job on  1  processors
+Processing $rem in /usr/local/qchem/config/preferences.
+
+theFileMan(): MAXOPENFILES=974 MAX_SUB_FILE_NUM=16
+Maximum size of a physical file is 2.0 GB, maximum size of a tmp-file is 32.0 GB
+
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+
+$molecule
+0,2
+C
+S,1,R
+H,1,ch1,2,hcs
+X,1,1.,2,alpha,3,180.,0
+H,1,ch,4,hch2,3,90.,0
+H,1,ch,4,hch2,3,-90.,0
+
+R=1.81256567
+ch=1.09351119
+hcs=106.82996657
+ch1=1.09887196
+hch2=55.32746965
+alpha=130.50070297
+
+$end
+
+$comment
+neutral
+$end
+
+$xc_functional
+C PBE   1.00
+X wPBE  1.00
+$end
+
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+LRC_DFT                 true
+exchange 		general
+BASIS                   g3large
+omega			700
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+
+--------------------------------------------------------------
+ Writing REM_CC_EA            5
+ ----------------------------------------------------
+       Standard Nuclear Orientation (Angstroms)
+    I     Atom         X            Y            Z
+ ----------------------------------------------------
+    1      C       0.000000     0.000000     0.000000
+    2      S       0.000000     0.000000     1.812566
+    3      H       1.051805     0.000000    -0.318159
+    4      H      -0.473030     0.899322    -0.404016
+    5      H      -0.473030    -0.899322    -0.404016
+ ----------------------------------------------------
+ Nuclear Repulsion Energy =    48.1227557371 hartrees
+ There are       13 alpha and       12 beta electrons
+ Requested basis set is G3large
+ There are 47 shells and 138 basis functions
+
+Total QAlloc Memory Limit   2000 MB
+Mega-Array Size       743 MB
+MEM_STATIC part       760 MB
+
+                       Distance Matrix (Angstroms)
+             C (  1)   S (  2)   H (  3)   H (  4)
+   S (  2)  1.812566
+   H (  3)  1.098872  2.376191
+   H (  4)  1.093511  2.438395  1.772364
+   H (  5)  1.093511  2.438395  1.772364  1.798644
+ 
+ A cutoff of  1.0D-08 yielded   1081 shell pairs
+ There are   9436 function pairs ( 12275 Cartesian)
+Evaluating contribution to one-electron hamiltonian from nuclear
+ Smallest overlap matrix eigenvalue = 4.38E-04
+ Multipole matrices computed through 2nd order
+
+  Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000055 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ Long-range K will be added via erf
+ Coulomb attenuation parameter = 0.7 bohr**(-1)
+ An unrestricted Kohn-Sham SCF calculation will be
+ performed using Pulay DIIS extrapolation
+ Exchange:  wPBE + LR-HF      Correlation:  PBE
+ Using SG-1 standard quadrature grid
+ SCF converges when DIIS error is below 1.0E-05
+ Requested basis set is G3large
+ There are 47 shells and 138 basis functions
+ A cutoff of  1.0D-08 yielded   1081 shell pairs
+ There are   9436 function pairs ( 12275 Cartesian)
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1    -438.1056403412      2.89E-02
+    2    -437.9370043701      2.19E-03
+    3    -437.9581617197      6.49E-04
+    4    -437.9602897321      2.71E-04
+    5    -437.9606933878      7.40E-05
+    6    -437.9607623263      2.44E-05
+    7    -437.9607755705      1.04E-05
+    8    -437.9607808377      8.18E-06 Convergence criterion met
+ ---------------------------------------
+ One-Electron    Energy =  -698.4345854928
+ Total Coulomb   Energy =   244.4384242183
+ Alpha Exchange  Energy =    -4.0952031432
+ Beta  Exchange  Energy =    -3.8208450683
+ DFT   Exchange  Energy =   -23.2835659530
+ DFT Correlation Energy =    -0.8877611303
+ Nuclear Repu.   Energy =    48.1227557316
+ Nuclear Attr.   Energy = -1135.5001115760
+ Kinetic         Energy =   437.0655260832
+ <S^2> = 0.7594
+ SCF time:  CPU 44.10 s  wall 45.62 s
+ Final Alpha MO Eigenvalues
+            1           2           3           4           5           6
+    1 -88.4423948 -10.3008209  -8.0803618  -6.0835569  -6.0743304  -6.0644146
+            7           8           9          10          11          12
+    1  -1.0236076  -0.8470364  -0.6171667  -0.6049883  -0.5188252  -0.4442383
+           13          14          15          16          17          18
+    1  -0.3906762   0.0387805   0.0682917   0.0708173   0.0818791   0.1255209
+ Final Beta MO Eigenvalues
+            1           2           3           4           5           6
+    1 -88.4376034 -10.3011744  -8.0755293  -6.0716937  -6.0697602  -6.0608375
+            7           8           9          10          11          12
+    1  -0.9979826  -0.7991188  -0.6048696  -0.5943575  -0.5072298  -0.3766192
+           13          14          15          16          17
+    1  -0.0247664   0.0393066   0.0693468   0.0710844   0.0847024
+ Analysis of SCF Wavefunction
+ 
+ --------------------------------------------------------------
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+ 
+ Alpha MOs
+ -- Occupied --
+-88.442 -10.301  -8.080  -6.084  -6.074  -6.064  -1.024  -0.847
+ -0.617  -0.605  -0.519  -0.444  -0.391
+ -- Virtual --
+  0.039   0.068   0.071   0.082   0.126   0.127   0.132   0.151
+  0.157   0.161   0.190   0.221   0.249   0.254   0.338   0.346
+  0.355   0.381   0.396   0.449   0.474   0.502   0.523   0.529
+  0.545   0.670   0.676   0.707   0.755   0.822   0.828   0.845
+  0.951   0.996   0.999   1.010   1.049   1.058   1.064   1.071
+  1.170   1.174   1.180   1.237   1.246   1.311   1.363   1.376
+  1.416   1.418   1.436   1.539   1.551   1.568   1.611   1.621
+  1.737   1.995   2.034   2.214   2.621   2.626   2.725   3.104
+  3.110   3.172   3.181   3.337   3.352   3.370   3.413   3.439
+  3.667   3.677   3.687   3.713   3.718   3.726   3.755   3.805
+  3.833   3.986   4.051   4.058   4.150   4.326   4.328   4.504
+  4.512   4.516   4.598   4.756   4.757   4.955   4.987   5.200
+  5.498   5.802   5.815   8.461  17.242  17.263  17.507  23.594
+ 23.676  23.726  23.740  23.786  24.242  27.975  28.172  28.195
+ 31.050  31.052  31.056  31.057  31.059  31.072  31.086  41.083
+ 41.110  41.306  41.332  41.383 189.033
+ 
+ Beta MOs
+ -- Occupied --
+-88.438 -10.301  -8.076  -6.072  -6.070  -6.061  -0.998  -0.799
+ -0.605  -0.594  -0.507  -0.377
+ -- Virtual --
+ -0.025   0.039   0.069   0.071   0.085   0.129   0.132   0.137
+  0.154   0.160   0.166   0.190   0.230   0.254   0.256   0.353
+  0.372   0.380   0.411   0.418   0.455   0.478   0.526   0.531
+  0.544   0.551   0.674   0.676   0.714   0.757   0.830   0.833
+  0.850   0.959   1.009   1.018   1.020   1.069   1.074   1.080
+  1.083   1.188   1.207   1.210   1.242   1.250   1.314   1.376
+  1.380   1.426   1.430   1.441   1.546   1.556   1.573   1.615
+  1.622   1.739   2.037   2.046   2.220   2.626   2.628   2.728
+  3.105   3.113   3.176   3.182   3.342   3.353   3.371   3.418
+  3.442   3.688   3.711   3.715   3.726   3.749   3.752   3.757
+  3.832   3.836   3.991   4.053   4.061   4.156   4.330   4.332
+  4.507   4.515   4.518   4.600   4.771   4.771   4.967   4.991
+  5.203   5.506   5.805   5.817   8.470  17.260  17.269  17.510
+ 23.606  23.687  23.737  23.742  23.790  24.241  27.974  28.171
+ 28.195  31.054  31.056  31.059  31.060  31.063  31.073  31.087
+ 41.082  41.110  41.305  41.332  41.383 189.038
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 C                    -0.013338      -0.044026
+      2 S                    -0.225845       0.992839
+      3 H                     0.082580       0.018623
+      4 H                     0.077349       0.005241
+      5 H                     0.079254       0.027323
+  --------------------------------------------------------
+  Sum of atomic charges =     0.000000
+  Sum of spin   charges =     1.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X       0.0431      Y      -0.0351      Z      -1.7300
+       Tot       1.7309
+    Quadrupole Moments (Debye-Ang)
+        XX     -20.1329     XY       1.2861     YY     -20.1809
+        XZ       0.0620     YZ       0.0711     ZZ     -23.0163
+    Octapole Moments (Debye-Ang^2)
+       XXX       0.7381    XXY      -0.0077    XYY      -0.9053
+       YYY      -0.0132    XXZ     -24.1708    XYZ       2.3532
+       YYZ     -24.6257    XZZ      -0.1106    YZZ      -0.0635
+       ZZZ     -71.4531
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX     -30.8799   XXXY       1.6223   XXYY     -10.5133
+      XYYY       1.6490   YYYY     -31.4132   XXXZ      -0.4045
+      XXYZ       0.0472   XYYZ       0.3694   YYYZ       0.1536
+      XXZZ     -54.9625   XYZZ       5.0679   YYZZ     -55.4559
+      XZZZ       0.1055   YZZZ      -0.0956   ZZZZ    -283.1230
+ -----------------------------------------------------------------
+ Total job time:  45.79s(wall), 44.24s(cpu) 
+ Mon Jun  3 17:06:32 2013
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+
+0 sent ACK to 0 
+now end server 0 ... 
+ 
+**********************************************************************
+Job 3 of 3 
+**********************************************************************
+ 
+Process 0 of 1 is on cl064.stfx.acenet.ca - thread support 1
+initial socket setup ...start
+initial socket setup ...done 
+now start server 0 ... 
+
+cmd = /usr/bin/ssh clhead /usr/local/qchem/bin/get_hostid 1682880292 > /scratch/tmp/6027826.1.short.q/qchem6121/lic.dat
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+ Y. Shao, L. Fusti-Molnar, Y. Jung, J. Kussmann, C. Ochsenfeld,
+ S. T. Brown, A. T. B. Gilbert, L. V. Slipchenko,S. V. Levchenko,
+ D. P. O'Neill, R. A. DiStasio Jr., R. C. Lochan, T. Wang,
+ G. J. O. Beran, N. A. Besley, J. M. Herbert, C. Y. Lin,
+ T. Van Voorhis, S. H. Chien, A. Sodt, R. P. Steele, 
+ V. A. Rassolov, P. E. Maslen, P. P. Korambath, R. D. Adamson,
+ B. Austin, J. Baker, E. F. C. Byrd, H. Dachsel, R. J. Doerksen,
+ A. Dreuw, B. D. Dunietz, A. D. Dutoi, T. R. Furlani,
+ S. R. Gwaltney, A. Heyden, S. Hirata, C.-P. Hsu, G. Kedziora,
+ R. Z. Khaliullin, P. Klunzinger, A. M. Lee, M. S. Lee, W. Liang,
+ I. Lotan, N. Nair, B. Peters, E. I. Proynov, P. A. Pieniazek, 
+ Y. M. Rhee, J. Ritchie, E. Rosta, C. D. Sherrill, 
+ A. C. Simmonett, J. E. Subotnik, H. L. Woodcock III,
+ W. Zhang, A. T. Bell, A. K. Chakraborty, D. M. Chipman,
+ F. J. Keil, A. Warshel, W. J. Hehre, H. F. Schaefer III,
+ J. Kong, A. I. Krylov, P. M. W. Gill, M. Head-Gordon,
+ Q-Chem, Version 3.1, Q-Chem, Inc., Pittsburgh, PA (2007).
+
+ Additional authors for Version 3.1: 
+ Z. Gan, Y. Zhao, N. E. Schultz, D. Truhlar, E. Epifanovsky and M. Oana.
+
+ Additional authors for Version 3.2: 
+ R. Baer, B. R. Brooks, D. Casanova, J.-D. Chai, C.-L. Cheng, 
+ C. Cramer, D. Crittenden, A. Ghysels, G. Hawkins, E. G. Hohenstein, 
+ C. Kelley, W. Kurlancheek, D. Liotard, E. Livshits, P. Manohar, 
+ A. Marenich, D. Neuhauser, R. Olson, M. A. Rohrdanz, K. S. Thanthiriwatte, 
+ A. J. W. Thom, V. Vanovschi, C. F. Williams, Q. Wu and Z.-Q. You. 
+
+
+ Intel X86 Linux Version
+
+ Q-chem begins on Mon Jun  3 17:06:35 2013  
+
+ Parallel job on  1  processors
+Processing $rem in /usr/local/qchem/config/preferences.
+
+theFileMan(): MAXOPENFILES=974 MAX_SUB_FILE_NUM=16
+Maximum size of a physical file is 2.0 GB, maximum size of a tmp-file is 32.0 GB
+
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+
+$molecule
+1,3
+C
+S,1,R
+H,1,ch1,2,hcs
+X,1,1.,2,alpha,3,180.,0
+H,1,ch,4,hch2,3,90.,0
+H,1,ch,4,hch2,3,-90.,0
+
+R=1.81256567
+ch=1.09351119
+hcs=106.82996657
+ch1=1.09887196
+hch2=55.32746965
+alpha=130.50070297
+
+$end
+
+$comment
+positive
+$end
+
+$xc_functional
+C PBE   1.00
+X wPBE  1.00
+$end
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+LRC_DFT                 true
+exchange 		general
+BASIS                   g3large
+omega			700
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+
+--------------------------------------------------------------
+ Writing REM_CC_EA            5
+ ----------------------------------------------------
+       Standard Nuclear Orientation (Angstroms)
+    I     Atom         X            Y            Z
+ ----------------------------------------------------
+    1      C       0.000000     0.000000     0.000000
+    2      S       0.000000     0.000000     1.812566
+    3      H       1.051805     0.000000    -0.318159
+    4      H      -0.473030     0.899322    -0.404016
+    5      H      -0.473030    -0.899322    -0.404016
+ ----------------------------------------------------
+ Nuclear Repulsion Energy =    48.1227557371 hartrees
+ There are       13 alpha and       11 beta electrons
+ Requested basis set is G3large
+ There are 47 shells and 138 basis functions
+
+Total QAlloc Memory Limit   2000 MB
+Mega-Array Size       743 MB
+MEM_STATIC part       760 MB
+
+                       Distance Matrix (Angstroms)
+             C (  1)   S (  2)   H (  3)   H (  4)
+   S (  2)  1.812566
+   H (  3)  1.098872  2.376191
+   H (  4)  1.093511  2.438395  1.772364
+   H (  5)  1.093511  2.438395  1.772364  1.798644
+ 
+ A cutoff of  1.0D-08 yielded   1081 shell pairs
+ There are   9436 function pairs ( 12275 Cartesian)
+Evaluating contribution to one-electron hamiltonian from nuclear
+ Smallest overlap matrix eigenvalue = 4.38E-04
+ Multipole matrices computed through 2nd order
+
+  Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000055 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ Long-range K will be added via erf
+ Coulomb attenuation parameter = 0.7 bohr**(-1)
+ An unrestricted Kohn-Sham SCF calculation will be
+ performed using Pulay DIIS extrapolation
+ Exchange:  wPBE + LR-HF      Correlation:  PBE
+ Using SG-1 standard quadrature grid
+ SCF converges when DIIS error is below 1.0E-05
+ Requested basis set is G3large
+ There are 47 shells and 138 basis functions
+ A cutoff of  1.0D-08 yielded   1081 shell pairs
+ There are   9436 function pairs ( 12275 Cartesian)
+ Warning!  Inaccurate integrated density:
+   Number of electrons =    24
+   Numerical integral  =    25.000026025866
+   Relative error      =     4.1667751078 %
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1    -438.1056403412      2.89E-02
+    2    -437.5239205372      3.45E-03
+    3    -437.5955415934      1.71E-03
+    4    -437.6087833239      5.59E-04
+    5    -437.6145482459      2.74E-04
+    6    -437.6161623531      1.19E-04
+    7    -437.6164678187      3.26E-05
+    8    -437.6165031223      8.06E-06 Convergence criterion met
+ ---------------------------------------
+ One-Electron    Energy =  -690.4930514093
+ Total Coulomb   Energy =   236.5373900618
+ Alpha Exchange  Energy =    -4.1357151211
+ Beta  Exchange  Energy =    -3.5696624681
+ DFT   Exchange  Energy =   -23.2310221686
+ DFT Correlation Energy =    -0.8471977487
+ Nuclear Repu.   Energy =    48.1227557316
+ Nuclear Attr.   Energy = -1127.2150262051
+ Kinetic         Energy =   436.7219747959
+ <S^2> = 2.0139
+ SCF time:  CPU 44.84 s  wall 46.03 s
+ Final Alpha MO Eigenvalues
+            1           2           3           4           5           6
+    1 -88.8250946 -10.5527723  -8.4571655  -6.4565707  -6.4564588  -6.4449113
+            7           8           9          10          11          12
+    1  -1.3440911  -1.1382538  -0.8793478  -0.8765583  -0.8184945  -0.7575845
+           13          14          15          16          17          18
+    1  -0.7533536  -0.1314955  -0.1066890  -0.0717162  -0.0715772  -0.0492493
+ Final Beta MO Eigenvalues
+            1           2           3           4           5           6
+    1 -88.8144116 -10.5531735  -8.4464735  -6.4390266  -6.4373530  -6.4372734
+            7           8           9          10          11          12
+    1  -1.2666622  -1.0582912  -0.8390148  -0.8327444  -0.7962863  -0.3121426
+           13          14          15          16
+    1  -0.3109437  -0.1146737  -0.0971557  -0.0681156
+ Analysis of SCF Wavefunction
+ 
+ --------------------------------------------------------------
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+ 
+ Alpha MOs
+ -- Occupied --
+-88.825 -10.553  -8.457  -6.457  -6.456  -6.445  -1.344  -1.138
+ -0.879  -0.877  -0.818  -0.758  -0.753
+ -- Virtual --
+ -0.131  -0.107  -0.072  -0.072  -0.049  -0.033  -0.029  -0.028
+ -0.021  -0.021   0.031   0.043   0.058   0.059   0.061   0.064
+  0.131   0.137   0.177   0.231   0.245   0.271   0.272   0.324
+  0.338   0.463   0.464   0.469   0.555   0.579   0.583   0.598
+  0.691   0.713   0.727   0.734   0.757   0.760   0.787   0.813
+  0.830   0.831   0.907   1.007   1.016   1.075   1.100   1.111
+  1.144   1.167   1.181   1.298   1.301   1.313   1.384   1.387
+  1.514   1.681   1.690   1.910   2.380   2.382   2.485   2.838
+  2.862   2.908   2.915   3.058   3.107   3.124   3.147   3.174
+  3.282   3.295   3.365   3.370   3.426   3.460   3.480   3.505
+  3.505   3.703   3.800   3.802   3.873   4.076   4.076   4.257
+  4.259   4.261   4.351   4.383   4.383   4.615   4.642   4.943
+  5.174   5.560   5.570   8.095  16.871  16.873  17.139  23.209
+ 23.292  23.357  23.358  23.415  23.988  27.720  27.920  27.944
+ 30.670  30.671  30.682  30.682  30.693  30.693  30.713  40.830
+ 40.859  41.054  41.079  41.132 188.652
+ 
+ Beta MOs
+ -- Occupied --
+-88.814 -10.553  -8.446  -6.439  -6.437  -6.437  -1.267  -1.058
+ -0.839  -0.833  -0.796
+ -- Virtual --
+ -0.312  -0.311  -0.115  -0.097  -0.068  -0.068  -0.040  -0.025
+ -0.019  -0.018  -0.014  -0.010   0.032   0.048   0.069   0.071
+  0.124   0.128   0.177   0.181   0.181   0.243   0.252   0.310
+  0.310   0.329   0.344   0.467   0.468   0.481   0.559   0.591
+  0.595   0.611   0.720   0.749   0.751   0.758   0.795   0.800
+  0.814   0.833   0.903   0.904   0.924   1.016   1.024   1.086
+  1.118   1.127   1.162   1.182   1.197   1.306   1.312   1.323
+  1.388   1.392   1.517   1.737   1.746   1.924   2.387   2.389
+  2.492   2.845   2.865   2.914   2.920   3.068   3.111   3.128
+  3.160   3.186   3.383   3.394   3.422   3.430   3.438   3.464
+  3.494   3.530   3.532   3.715   3.803   3.807   3.882   4.084
+  4.085   4.264   4.267   4.269   4.358   4.413   4.414   4.632
+  4.659   4.951   5.189   5.565   5.577   8.115  16.898  16.900
+ 17.146  23.235  23.316  23.372  23.372  23.427  23.988  27.719
+ 27.920  27.944  30.679  30.680  30.688  30.689  30.698  30.698
+ 30.718  40.829  40.859  41.053  41.079  41.132 188.664
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 C                     0.083939      -0.068248
+      2 S                     0.513722       1.945941
+      3 H                     0.134669       0.043199
+      4 H                     0.133876       0.040135
+      5 H                     0.133795       0.038973
+  --------------------------------------------------------
+  Sum of atomic charges =     1.000000
+  Sum of spin   charges =     2.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 4.8032
+    Dipole Moment (Debye)
+         X       0.0575      Y       0.0001      Z       4.7414
+       Tot       4.7417
+    Quadrupole Moments (Debye-Ang)
+        XX     -15.6736     XY      -0.0001     YY     -15.5256
+        XZ       0.0225     YZ      -0.0002     ZZ      -6.3088
+    Octapole Moments (Debye-Ang^2)
+       XXX       1.1176    XXY       0.0001    XYY      -1.2000
+       YYY       0.0003    XXZ     -18.1765    XYZ       0.0004
+       YYZ     -18.3491    XZZ      -0.2316    YZZ      -0.0006
+       ZZZ     -35.5120
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX     -20.4991   XXXY      -0.0002   XXYY      -7.0021
+      XYYY      -0.0002   YYYY     -20.5700   XXXZ      -0.7382
+      XXYZ       0.0000   XYYZ       0.6187   YYYZ       0.0000
+      XXZZ     -39.4532   XYZZ       0.0004   YYZZ     -39.2371
+      XZZZ      -0.2101   YZZZ      -0.0024   ZZZZ    -187.6039
+ -----------------------------------------------------------------
+ Total job time:  46.19s(wall), 44.99s(cpu) 
+ Mon Jun  3 17:07:21 2013
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+
+0 sent ACK to 0 
+now end server 0 ... 
